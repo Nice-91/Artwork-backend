@@ -92,7 +92,7 @@ DEFAULT_FROM_EMAIL = 'noreply@artwork.com'
 CONTACT_EMAIL = 'iradukundanice91@gmail.com'
 
 LOGIN_REDIRECT_URL = '/admin/'
-DEBUG = False
+DEBUG = True
 
 LOGGING = {
     'version': 1,
