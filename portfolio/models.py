@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 
 class Portfolio(models.Model):
     CATEGORY_CHOICES = [
@@ -15,7 +15,7 @@ class Portfolio(models.Model):
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     description = models.TextField()
 
-    image = models.ImageField(upload_to='portfolio/')  # uploads from device
+    image = CloudinaryField('image')  #
     tags = models.JSONField(blank=True, null=True)
 
     def __str__(self):
