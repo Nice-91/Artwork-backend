@@ -11,6 +11,10 @@ SECRET_KEY = 'django-insecure-h!+qzlxpw#a-!b=0&3xwrhdzm+mkbwu2m)c!6j!9xv&yxuc!4(
 DEBUG = True
 ALLOWED_HOSTS = ['artwork-backend-2.onrender.com', 'localhost', '127.0.0.1']
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -19,7 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'corsheaders',
     'portfolio',
     'quotes',
 
@@ -29,6 +33,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
