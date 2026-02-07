@@ -11,6 +11,8 @@ SECRET_KEY = 'django-insecure-h!+qzlxpw#a-!b=0&3xwrhdzm+mkbwu2m)c!6j!9xv&yxuc!4(
 DEBUG = True
 ALLOWED_HOSTS = ['artwork-backend-2.onrender.com', 'localhost', '127.0.0.1']
 
+CORS_ALLOW_ALL_ORIGINS = False
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
@@ -77,8 +79,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -89,7 +89,6 @@ cloudinary.config(
     api_secret='qRjnRocNOi08lL2LG9HrnaypVl4',
 )
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
