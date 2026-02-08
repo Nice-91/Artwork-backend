@@ -105,7 +105,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'iradukundanice91@gmail.com'
-EMAIL_HOST_PASSWORD = 'kapwoqinuiniston'
+EMAIL_HOST_PASSWORD = 'ggxvngterxciyzph'
 
 DEFAULT_FROM_EMAIL = 'Artwork Quotes <iradukundanice91@gmail.com>'
 CONTACT_EMAIL = 'iradukundanice91@gmail.com'
@@ -122,9 +122,17 @@ LOGGING = {
             'class': 'logging.StreamHandler',
         },
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'ERROR',
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',  # or DEBUG for more verbosity
+        },
+        'django.mail': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     },
 }
+
 
