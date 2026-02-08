@@ -8,10 +8,10 @@ from django.conf import settings
 class QuoteCreateView(generics.CreateAPIView):
     serializer_class = QuoteRequestSerializer
 
-    def perform_create(self, serializer):
-        quote = serializer.save()
 
-        # Send email notification
+def perform_create(self, serializer):
+    quote = serializer.save()
+    try:
         subject = f"New Quote Request from {quote.full_name}"
         message = f"""
         Name: {quote.full_name}
@@ -32,6 +32,8 @@ class QuoteCreateView(generics.CreateAPIView):
             [settings.CONTACT_EMAIL],
             fail_silently=False,
         )
+    except Exception as e:
+        print(f"Error sending email: {e}")  # Or use logging instead of print
 
 
 class QuoteListView(generics.ListAPIView):
