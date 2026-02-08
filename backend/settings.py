@@ -96,8 +96,10 @@ cloudinary.config(
 # EMAIL CONFIGURATION
 # =========================
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Temporarily use console email backend for debugging
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# Keep other email settings as they are
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
