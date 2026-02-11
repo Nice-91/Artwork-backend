@@ -1,4 +1,5 @@
 from pathlib import Path
+import dj_database_url
 import os
 import cloudinary
 import cloudinary.uploader
@@ -68,11 +69,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
 }
+
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
